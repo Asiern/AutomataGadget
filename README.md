@@ -21,12 +21,23 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 - `Infinite Air Dash` - removes single air dash limiation
 - `2x Speed` - set game speed to 2x
 
-## :scroll: Release Notes
+## :clipboard: Release Notes
 
 ### Version 1.0.0 | [View Previous Versions](Notes.md)
 
 #### What's new?
 
+- Status
+- Warping
+- No Clip
+- Infinite Double Jump
+- Infinite Air Dash
+- Ignore Materials
+- No Cooldown
+- 2x Speed
+
 #### Known issues
+
+- If unhooked, crashes when closing.
 
 ## :page_with_curl: [License](License)
