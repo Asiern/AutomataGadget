@@ -2,6 +2,11 @@
 
 A multi-purpose focused tool for NieR:Automata.
 
+<img src="https://github.com/Asiern/NieRAutomataGadget/blob/master/README/img.JPG" />
+
+Using NieR:Hook v1.0.0 <br>
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=asiern&repo=NieRHook)](https://github.com/asiern/NieRHook)
+
 ## :page_facing_up: Instructions
 
 _NieR:Automata Gadget only works on x64_
