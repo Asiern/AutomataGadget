@@ -6,7 +6,6 @@
 void NieRHook::_hook(void)
 {
 	DWORD ID = this->_pID;
-	uintptr_t entityAddress = 0;
 	while (ID <= 0) {
 		ID = this->_getProcessID();
 	}
