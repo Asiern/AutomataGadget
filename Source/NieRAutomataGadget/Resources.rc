@@ -78,7 +78,7 @@ BEGIN
         BLOCK "000904b0"
         BEGIN
             VALUE "CompanyName", "Asiern"
-            VALUE "FileDescription", "A multi-purpose focused tool for NieR:Automata."
+            VALUE "FileDescription", "NieR:AutomataGadget"
             VALUE "FileVersion", "1.0.0.1"
             VALUE "InternalName", "NieRAuto.exe"
             VALUE "LegalCopyright", "Copyright (C) 2021"

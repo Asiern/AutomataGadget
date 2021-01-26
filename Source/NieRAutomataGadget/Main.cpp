@@ -36,8 +36,8 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30
 	m_status->SetFont(font);
 	m_version = new wxStaticText(this, wxID_ANY, "Version: 1.0.1", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_version->SetFont(font);
-	m_github = new wxStaticText(this, wxID_ANY, "github.com/Asiern", wxPoint(width - margin * 8, margin * 3), wxDefaultSize, 0, wxStaticTextNameStr);
-	m_github->SetFont(font);
+	/*m_github = new wxStaticText(this, wxID_ANY, "github.com/Asiern", wxPoint(width - margin * 8, margin * 3), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_github->SetFont(font);*/
 
 	//PLAYER TAB
 	PlayerTab = new wxPanel(notebook, wxID_ANY);
