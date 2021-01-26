@@ -1,5 +1,7 @@
 ## :hammer: NieR:Automata Gadget
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Asiern/NieRAutomataGadget?style=flat-square)
+
 A multi-purpose focused tool for NieR:Automata.
 
 <img src="https://github.com/Asiern/NieRAutomataGadget/blob/master/README/img.jpg" />
