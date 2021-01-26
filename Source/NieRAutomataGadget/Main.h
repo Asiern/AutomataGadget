@@ -1,6 +1,7 @@
 #pragma once
-#include "wx/wx.h"
-#include "wx/notebook.h"
+#include <wx/wx.h>
+#include <wx/notebook.h>
+#include <wx/listctrl.h>
 #include "NierHook.hpp"
 
 class Main : public wxFrame, public wxThreadHelper
@@ -24,9 +25,12 @@ public:
 	wxStaticText* m_hooked = nullptr;
 	wxStaticText* m_status = nullptr;
 	wxStaticText* m_version = nullptr;
+	wxStaticText* m_github = nullptr;
 
 	//Tabs
 	wxNotebook* notebook = nullptr;
+	wxPanel* PlayerTab = nullptr;
+	wxPanel* ItemsTab = nullptr;
 
 	//STATS
 	wxStaticBox* m_StatsBox = nullptr;
@@ -61,6 +65,10 @@ public:
 	wxButton* m_WarpButton = nullptr;
 	wxButton* m_StorePosition = nullptr;
 	wxButton* m_RestorePosition = nullptr;
+
+	//ITEMS
+	wxComboBox* m_ItemCategoryComboBox = nullptr;
+	wxListCtrl* m_Items = nullptr;
 
 protected:
 	void updateComponents(void);

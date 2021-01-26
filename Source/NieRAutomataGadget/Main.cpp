@@ -34,11 +34,13 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30
 	m_hooked->SetFont(font);
 	m_status = new wxStaticText(this, wxID_ANY, "Process: None", wxPoint(margin, margin * 3), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_status->SetFont(font);
-	m_version = new wxStaticText(this, wxID_ANY, "Version: 1.0.0", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_version = new wxStaticText(this, wxID_ANY, "Version: 1.0.1", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_version->SetFont(font);
+	m_github = new wxStaticText(this, wxID_ANY, "github.com/Asiern", wxPoint(width - margin * 8, margin * 3), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_github->SetFont(font);
 
 	//PLAYER TAB
-	wxPanel* PlayerTab = new wxPanel(notebook, wxID_ANY);
+	PlayerTab = new wxPanel(notebook, wxID_ANY);
 	notebook->AddPage(PlayerTab, wxT("Player"), true, 0);
 
 	//Status
@@ -118,10 +120,25 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30
 	Locations->Add("Underground Cave (Entrance)", 1);
 	m_WarpComboBox = new wxComboBox(PlayerTab, wxID_ANY, "", wxPoint(2 * margin, 410), wxSize((width - (6 * margin)) * 2 / 3, 20), *Locations, 0, wxDefaultValidator, wxComboBoxNameStr);
 
+	delete Locations;
 
-	//ITEMS TAB
-	//wxPanel* ItemsTab = new wxPanel(notebook, wxID_ANY);
+	////ITEMS TAB
+	//ItemsTab = new wxPanel(notebook, wxID_ANY);
 	//notebook->AddPage(ItemsTab, wxT("Items"), false, 1);
+
+	////ITEMS
+	//wxArrayString* ItemCategories = new wxArrayString();
+	//ItemCategories->Add("Restorative", 1);
+	//ItemCategories->Add("Enhancement", 1);
+	//ItemCategories->Add("Support", 1);
+	//ItemCategories->Add("Materials", 1);
+	//ItemCategories->Add("Key", 1);
+
+	//m_ItemCategoryComboBox = new wxComboBox(ItemsTab, wxID_ANY, "", wxPoint(2 * margin, 2 * margin), wxSize(width - (5 * margin), 25), *ItemCategories, 0, wxDefaultValidator, wxComboBoxNameStr);
+
+	//m_Items = new wxListCtrl(ItemsTab, wxID_ANY, wxPoint(2 * margin, 60), wxSize(width - (5 * margin), 300), wxLC_ICON, wxDefaultValidator, wxListCtrlNameStr);
+
+	//delete ItemCategories;
 
 	//Tab styles
 	PlayerTab->SetBackgroundColour(wxColor(255, 255, 255));
@@ -446,15 +463,19 @@ wxThread::ExitCode Main::Entry()
 			hook->update(); //Update hook
 		}
 	}
-	wxThread::Sleep(200);
 	return (wxThread::ExitCode)0;
 }
 
 void Main::OnClose(wxCloseEvent&)
 {
-	hook->stop();
-	if (GetThread() && GetThread()->IsRunning())
+	m_Timer->Stop();
+	if (hook->isHooked()) {
+		hook->stop();
+		GetThread()->TestDestroy();
 		GetThread()->Delete();
+	}
+	delete m_Timer;
+	delete hook;
 	Destroy();
 }
 
