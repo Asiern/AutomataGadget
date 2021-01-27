@@ -37,4 +37,4 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 - Fixed memory leaks
 - Fixed crashes
 
-## :page_with_curl: [License](License)
+## :page_with_curl: [License](LICENSE)
