@@ -1,5 +1,8 @@
+#ifndef NIERHOOK_H
+#define NIERHOOK_H
 class NieRHook;
-class NieRHook {
+class NieRHook
+{
 private:
 	//Attributes
 	DWORD _pID;
@@ -21,21 +24,21 @@ private:
 	void _hook(void);
 	void _unHook(void);
 	DWORD _getProcessID(void);
-	uintptr_t _getModuleBaseAddress(DWORD procId, const wchar_t* modName);
+	uintptr_t _getModuleBaseAddress(DWORD procId, const wchar_t *modName);
 	void _updatePosition(void);
 	void _updateHealth(void);
 	void _updateEntity(void);
 	void _updateLevel(void);
 	void _updateFunds(void);
 	void _updateEXP(void);
-	bool _isCurrentPos(float X, float Y, float Z);
-	void Nop(BYTE* destination, unsigned int size, HANDLE hProcess);
-	void Patch(BYTE* destination, BYTE* src, unsigned int size, HANDLE hProcess);
+	void Nop(BYTE *destination, unsigned int size, HANDLE hProcess);
+	void Patch(BYTE *destination, BYTE *src, unsigned int size, HANDLE hProcess);
 
 public:
 	NieRHook();
+	~NieRHook();
 	void start(void); //Start hook
-	void stop(void); //Reset hook
+	void stop(void);  //Reset hook
 	bool isHooked(void);
 	void hookStatus(void);
 
@@ -64,4 +67,14 @@ public:
 	void NoCooldown(bool enabled);
 	void InfiniteAirDash(bool enabled);
 	void IgnoreUpgradeMaterials(bool enabled);
+
+	//Inventory
+	bool addItem(int ID, int number);
+	bool addWeapon(int ID, int level);
+
+	//Misc
+	void setHUDOpacity(float opacity);
+	void setColor(float R, float G, float B);
 };
+
+#endif
