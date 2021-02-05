@@ -52,7 +52,7 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30
 
 	Weapons->Enable(false);
 	Player->Enable(false);
-	//Inventory->Enable(false);
+	Inventory->Enable(false);
 
 
 	StartHook();//start hook thread
@@ -79,7 +79,7 @@ void Main::updateComponents(void)
 		m_status->SetLabel("Process: None");
 		Weapons->Enable(false);
 		Player->Enable(false);
-		//Inventory->Enable(false);
+		Inventory->Enable(false);
 	}
 }
 
