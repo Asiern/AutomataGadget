@@ -106,7 +106,7 @@ void WeaponPanel::OnCreatePress(wxCommandEvent& evt)
 	}
 	std::map<wxString, int>::iterator it = _Weapons.begin();
 	int ID = -1;
-	while (it != _Weapons.end()) {
+	for (;it != _Weapons.end();it++) {
 		if (it->first == w_WeaponList->GetString(w_WeaponList->GetSelection())) {
 			ID = it->second;
 			break;
@@ -131,7 +131,7 @@ void WeaponPanel::OnRemovePress(wxCommandEvent& evt)
 	}
 	std::map<wxString, int>::iterator it = _Weapons.begin();
 	int ID = -1;
-	while (it != _Weapons.end()) {
+	for (;it != _Weapons.end();it++) {
 		if (it->first == w_WeaponList->GetString(w_WeaponList->GetSelection())) {
 			ID = it->second;
 			break;

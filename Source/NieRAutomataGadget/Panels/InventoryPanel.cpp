@@ -28,7 +28,7 @@ int InventoryPanel::getItemID(wxString name, wxString category)
 		end = _Materials.end();
 	}
 
-	while (it != end) {
+	for (;it != end;it++) {
 		if (it->first == name) {
 			return it->second;
 		}
@@ -61,7 +61,7 @@ wxArrayString InventoryPanel::getItems(wxString category)
 		end = _Materials.end();
 	}
 
-	while (it != end) {
+	for (;it != end;it++) {
 		choices.Add(it->first);
 	}
 	return choices;
