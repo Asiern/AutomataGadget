@@ -5,48 +5,56 @@ wxEND_EVENT_TABLE()
 WeaponPanel::WeaponPanel(wxNotebook* parent, NieRHook* hook) : wxPanel(parent, wxID_ANY)
 {
 	this->hook = hook;
-	Weapons = new wxArrayString();
-	Weapons->Add("Faith", 1);
-	Weapons->Add("Iron Pipe", 1);
-	Weapons->Add("Beastbane", 1);
-	Weapons->Add("Phoenix Dagger", 1);
-	Weapons->Add("Ancient Overlord", 1);
-	Weapons->Add("Type-40 Sword", 1);
-	Weapons->Add("Type-3 Sword", 1);
-	Weapons->Add("Virtuous Contract", 1);
-	Weapons->Add("Cruel Oath", 1);
-	Weapons->Add("YoRHa-issue Blade", 1);
-	Weapons->Add("Machine Sword", 1);
-	Weapons->Add("Iron Will", 1);
-	Weapons->Add("Fang of the Twins", 1);
-	Weapons->Add("Beastlord", 1);
-	Weapons->Add("Phoenix Sword", 1);
-	Weapons->Add("Type-40 Blade", 1);
-	Weapons->Add("Type-3 Blade", 1);
-	Weapons->Add("Virtuous Treaty", 1);
-	Weapons->Add("Cruel Blood Oath", 1);
-	Weapons->Add("Machine Axe", 1);
-	Weapons->Add("Phoenix Lance", 1);
-	Weapons->Add("Beastcurse", 1);
-	Weapons->Add("Dragoon Lance", 1);
-	Weapons->Add("Spear of the Usurper", 1);
-	Weapons->Add("Type-40 Lance", 1);
-	Weapons->Add("Type-3 Lance", 1);
-	Weapons->Add("Virtuous Dignity", 1);
-	Weapons->Add("Cruel Arrogance", 1);
-	Weapons->Add("Machine Spear", 1);
-	Weapons->Add("Angel's Folly", 1);
-	Weapons->Add("Demon's Cry", 1);
-	Weapons->Add("Type-40 Fists", 1);
-	Weapons->Add("Type-3 Fists", 1);
-	Weapons->Add("Virtuous Grief", 1);
-	Weapons->Add("Creal Lament", 1);
-	Weapons->Add("Machine Heads", 1);
-	Weapons->Add("Engine Blade", 1);
-	Weapons->Add("Cypress Stick", 1);
-	Weapons->Add("Emil Heads", 1);
 
-	w_WeaponList = new wxListBox(this, wxID_ANY, wxPoint(20, 20), wxSize(315, 290), *Weapons, wxLB_NEEDED_SB, wxDefaultValidator, wxListBoxNameStr);
+	//Load Weapons
+	_Weapons.insert(std::pair<wxString, int>("Faith", 0x3EB));
+	_Weapons.insert(std::pair<wxString, int>("Iron Pipe", 0x3F5));
+	_Weapons.insert(std::pair<wxString, int>("Beastbane", 0x3FC));
+	_Weapons.insert(std::pair<wxString, int>("Phoenix Dagger", 0x410));
+	_Weapons.insert(std::pair<wxString, int>("Ancient Overlord", 0x406));
+	_Weapons.insert(std::pair<wxString, int>("Type-40 Sword", 0x41A));
+	_Weapons.insert(std::pair<wxString, int>("Type-3 Sword", 0x424));
+	_Weapons.insert(std::pair<wxString, int>("Virtuous Contract", 0x42E));
+	_Weapons.insert(std::pair<wxString, int>("Cruel Oath", 0x42F));
+	_Weapons.insert(std::pair<wxString, int>("YoRHa-issue Blade", 0x438));
+	_Weapons.insert(std::pair<wxString, int>("Machine Sword", 0x442));
+	_Weapons.insert(std::pair<wxString, int>("Iron Will", 0x4B3));
+	_Weapons.insert(std::pair<wxString, int>("Fang of the Twins", 0x4BD));
+	_Weapons.insert(std::pair<wxString, int>("Beastlord", 0x4C4));
+	_Weapons.insert(std::pair<wxString, int>("Phoenix Sword", 0x4CE));
+	_Weapons.insert(std::pair<wxString, int>("Type-40 Blade", 0x4D8));
+	_Weapons.insert(std::pair<wxString, int>("Type-3 Blade", 0x4E2));
+	_Weapons.insert(std::pair<wxString, int>("Virtuous Treaty", 0x4EC));
+	_Weapons.insert(std::pair<wxString, int>("Cruel Blood Oath", 0x4ED));
+	_Weapons.insert(std::pair<wxString, int>("Machine Axe", 0x4F6));
+	_Weapons.insert(std::pair<wxString, int>("Phoenix Lance", 0x578));
+	_Weapons.insert(std::pair<wxString, int>("Beastcurse", 0x58C));
+	_Weapons.insert(std::pair<wxString, int>("Dragoon Lance", 0x596));
+	_Weapons.insert(std::pair<wxString, int>("Spear of the Usurper", 0x5A0));
+	_Weapons.insert(std::pair<wxString, int>("Type-40 Lance", 0x5AA));
+	_Weapons.insert(std::pair<wxString, int>("Type-3 Lance", 0x5B4));
+	_Weapons.insert(std::pair<wxString, int>("Virtuous Dignity", 0x5BE));
+	_Weapons.insert(std::pair<wxString, int>("Cruel Arrogance", 0x5BF));
+	_Weapons.insert(std::pair<wxString, int>("Machine Spear", 0x5C8));
+	_Weapons.insert(std::pair<wxString, int>("Angel's Folly", 0x688));
+	_Weapons.insert(std::pair<wxString, int>("Demon's Cry", 0x65E));
+	_Weapons.insert(std::pair<wxString, int>("Type-40 Fists", 0x64A));
+	_Weapons.insert(std::pair<wxString, int>("Type-3 Fists", 0x640));
+	_Weapons.insert(std::pair<wxString, int>("Virtuous Grief", 0x654));
+	_Weapons.insert(std::pair<wxString, int>("Cruel Lament", 0x655));
+	_Weapons.insert(std::pair<wxString, int>("Machine Heads", 0x672));
+	_Weapons.insert(std::pair<wxString, int>("Engine Blade", 0x753));
+	_Weapons.insert(std::pair<wxString, int>("Cypress Stick", 0x754));
+	_Weapons.insert(std::pair<wxString, int>("Emil Heads", 0x755));
+
+	wxArrayString weapons;
+	std::map<wxString, int>::iterator it = _Weapons.begin();
+
+	for (;it != _Weapons.end();it++) {
+		weapons.Add(it->first);
+	}
+	w_WeaponList = new wxListBox(this, wxID_ANY, wxPoint(20, 20), wxSize(315, 290), weapons, wxLB_NEEDED_SB, wxDefaultValidator, wxListBoxNameStr);
+
 	//Level
 	w_LevelBox = new wxStaticBox(this, wxID_ANY, "Weapon Level", wxPoint(20, 330), wxSize(315, 70), 0, wxStaticBoxNameStr);
 	w_Level1 = new wxRadioButton(this, wxID_ANY, "Level 1", wxPoint(30, 360), wxDefaultSize, 0, wxDefaultValidator, wxRadioButtonNameStr);
@@ -54,15 +62,18 @@ WeaponPanel::WeaponPanel(wxNotebook* parent, NieRHook* hook) : wxPanel(parent, w
 	w_Level3 = new wxRadioButton(this, wxID_ANY, "Level 3", wxPoint(190, 360), wxDefaultSize, 0, wxDefaultValidator, wxRadioButtonNameStr);
 	w_Level4 = new wxRadioButton(this, wxID_ANY, "Level 4", wxPoint(270, 360), wxDefaultSize, 0, wxDefaultValidator, wxRadioButtonNameStr);
 	//Create
-	w_CreateButton = new wxButton(this, wxID_ANY, "Create", wxPoint(248, 415), wxSize(90, 25), 0, wxDefaultValidator, wxButtonNameStr);
+	w_CreateButton = new wxButton(this, wxID_ANY, "Add", wxPoint(20, 415), wxSize(90, 25), 0, wxDefaultValidator, wxButtonNameStr);
 	w_CreateButton->Bind(wxEVT_BUTTON, &WeaponPanel::OnCreatePress, this);
-	w_Status = new wxStaticText(this, wxID_ANY, "", wxPoint(20, 415), wxDefaultSize, 0, wxStaticTextNameStr);
+	//Remove
+	w_RemoveButton = new wxButton(this, wxID_ANY, "Remove", wxPoint(120, 415), wxSize(90, 25), 0, wxDefaultValidator, wxButtonNameStr);
+	w_RemoveButton->Bind(wxEVT_BUTTON, &WeaponPanel::OnRemovePress, this);
+
+	w_Status = new wxStaticText(this, wxID_ANY, "", wxPoint(215, 420), wxDefaultSize, 0, wxStaticTextNameStr);
 
 	this->SetBackgroundColour(wxColor(255, 255, 255));
 }
 WeaponPanel::~WeaponPanel()
 {
-	delete Weapons;
 }
 void WeaponPanel::toggleComponents(bool enabled)
 {
@@ -89,133 +100,52 @@ int WeaponPanel::getSelectedRadioBox(void) {
 }
 void WeaponPanel::OnCreatePress(wxCommandEvent& evt)
 {
-	int Selection = w_WeaponList->GetSelection();
-	int SelectionID;
-	switch (Selection) {
-	case 0:
-		SelectionID = 0x000003EB;
-		break;
-	case 1:
-		SelectionID = 0x000003F5;
-		break;
-	case 2:
-		SelectionID = 0x000003FC;
-		break;
-	case 3:
-		SelectionID = 0x00000410;
-		break;
-	case 4:
-		SelectionID = 0x00000406;
-		break;
-	case 5:
-		SelectionID = 0x0000041A;
-		break;
-	case 6:
-		SelectionID = 0x00000424;
-		break;
-	case 7:
-		SelectionID = 0x0000042E;
-		break;
-	case 8:
-		SelectionID = 0x0000042F;
-		break;
-	case 9:
-		SelectionID = 0x00000438;
-		break;
-	case 10:
-		SelectionID = 0x00000442;
-		break;
-	case 11:
-		SelectionID = 0x000004B3;
-		break;
-	case 12:
-		SelectionID = 0x000004BD;
-		break;
-	case 13:
-		SelectionID = 0x000004C4;
-		break;
-	case 14:
-		SelectionID = 0x000004CE;
-		break;
-	case 15:
-		SelectionID = 0x000004D8;
-		break;
-	case 16:
-		SelectionID = 0x000004E2;
-		break;
-	case 17:
-		SelectionID = 0x000004EC;
-		break;
-	case 18:
-		SelectionID = 0x000004ED;
-		break;
-	case 19:
-		SelectionID = 0x000004F6;
-		break;
-	case 20:
-		SelectionID = 0x00000578;
-		break;
-	case 21:
-		SelectionID = 0x0000058C;
-		break;
-	case 22:
-		SelectionID = 0x00000596;
-		break;
-	case 23:
-		SelectionID = 0x000005A0;
-		break;
-	case 24:
-		SelectionID = 0x000005AA;
-		break;
-	case 25:
-		SelectionID = 0x000005B4;
-		break;
-	case 26:
-		SelectionID = 0x000005BE;
-		break;
-	case 27:
-		SelectionID = 0x000005BF;
-		break;
-	case 28:
-		SelectionID = 0x000005C8;
-		break;
-	case 29:
-		SelectionID = 0x00000668;
-		break;
-	case 30:
-		SelectionID = 0x0000065E;
-		break;
-	case 31:
-		SelectionID = 0x0000064A;
-		break;
-	case 32:
-		SelectionID = 0x00000640;
-		break;
-	case 33:
-		SelectionID = 0x00000654;
-		break;
-	case 34:
-		SelectionID = 0x00000655;
-		break;
-	case 35:
-		SelectionID = 0x00000672;
-		break;
-	case 36:
-		SelectionID = 0x00000753;
-		break;
-	case 37:
-		SelectionID = 0x00000754;
-		break;
-	case 38:
-		SelectionID = 0x00000755;
-		break;
-	default:
-		wxMessageBox("Weapon not selected");
+	if (wxNOT_FOUND == w_WeaponList->GetSelection()) {
+		wxMessageBox("Please select a weapon");
 		return;
 	}
-	//Add Weapon
-	hook->addWeapon(SelectionID, this->getSelectedRadioBox());
-	wxString Level = std::to_string(this->getSelectedRadioBox());
-	wxString WeaponName = w_WeaponList->GetString(Selection);
-	w_Status->SetLabel(WeaponName + " Lv:" + Level + " Created");
+	std::map<wxString, int>::iterator it = _Weapons.begin();
+	int ID = -1;
+	while (it != _Weapons.end()) {
+		if (it->first == w_WeaponList->GetString(w_WeaponList->GetSelection())) {
+			ID = it->second;
+			break;
+		}
+	}
+	if (ID < 0) {
+		wxMessageBox("Could not add the item");
+		return;
+	}
+	//Add Weapon	
+	if (!hook->addWeapon(ID, this->getSelectedRadioBox())) {
+		wxMessageBox("Could not add selected weapon");
+		return;
+	}
+	w_Status->SetLabel(it->first + " Created");
 }
+void WeaponPanel::OnRemovePress(wxCommandEvent& evt)
+{
+	if (wxNOT_FOUND == w_WeaponList->GetSelection()) {
+		wxMessageBox("Please select a weapon");
+		return;
+	}
+	std::map<wxString, int>::iterator it = _Weapons.begin();
+	int ID = -1;
+	while (it != _Weapons.end()) {
+		if (it->first == w_WeaponList->GetString(w_WeaponList->GetSelection())) {
+			ID = it->second;
+			break;
+		}
+	}
+	if (ID < 0) {
+		wxMessageBox("Could not add the item");
+		return;
+	}
+	//Remove Weapon	
+	if (!hook->removeWeapon(ID)) {
+		wxMessageBox("Could not remove selected weapon");
+		return;
+	}
+	w_Status->SetLabel(it->first + " Removed");
+}
+
