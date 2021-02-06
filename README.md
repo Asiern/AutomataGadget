@@ -27,14 +27,19 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 - `Infinite Double Jump` - removes 2 jump limitation
 - `Infinite Air Dash` - removes single air dash limiation
 - `2x Speed` - set game speed to 2x
+- `Manage Items` - Add/Remove items
+- `Manage Weapons` - Add/Remove weapons
+- `HUD opacity` - set the HUD opacity
+- `RGB color combination` - set the game color combination
 
 ## :clipboard: Release Notes
 
-### Version 1.0.1 | [View Previous Versions](Notes.md)
+### Version 1.1.0 | [View Previous Versions](Notes.md)
 
 #### What's new?
 
-- Fixed memory leaks
-- Fixed crashes
+- Items tab
+- Weapons tab
+- Misc tab
 
 ## :page_with_curl: [License](LICENSE)

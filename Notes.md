@@ -1,3 +1,13 @@
+# Version 1.1.0 Notes
+
+## What's new?
+
+- Items tab
+- Weapons tab
+- Misc tab
+
+---
+
 # Version 1.0.1 Notes
 
 ## What's new?
