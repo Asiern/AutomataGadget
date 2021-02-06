@@ -26,6 +26,7 @@ public:
 	wxPanel* Player = nullptr;
 	wxPanel* Inventory = nullptr;
 	wxPanel* Weapons = nullptr;
+	wxPanel* Misc = nullptr;
 
 protected:
 	void updateComponents(void);

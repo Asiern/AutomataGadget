@@ -23,6 +23,7 @@
     <ClInclude Include="Main.h" />
     <ClInclude Include="NierHook.hpp" />
     <ClInclude Include="Panels\InventoryPanel.hpp" />
+    <ClInclude Include="Panels\MiscPanel.hpp" />
     <ClInclude Include="Panels\PlayerPanel.hpp" />
     <ClInclude Include="Panels\WeaponPanel.hpp" />
     <ClInclude Include="resource.h" />
@@ -32,6 +33,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NierHook.cpp" />
     <ClCompile Include="Panels\InventoryPanel.cpp" />
+    <ClCompile Include="Panels\MiscPanel.cpp" />
     <ClCompile Include="Panels\PlayerPanel.cpp" />
     <ClCompile Include="Panels\WeaponPanel.cpp" />
   </ItemGroup>

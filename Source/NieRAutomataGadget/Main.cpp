@@ -3,6 +3,7 @@
 #include "./Panels/InventoryPanel.hpp"
 #include "./Panels/PlayerPanel.hpp"
 #include "./Panels/WeaponPanel.hpp"
+#include "./Panels/MiscPanel.hpp"
 
 
 wxBEGIN_EVENT_TABLE(Main, wxFrame)
@@ -33,9 +34,11 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30
 	Player = new PlayerPanel(notebook, hook);
 	Inventory = new InventoryPanel(notebook, hook);
 	Weapons = new WeaponPanel(notebook, hook);
+	Misc = new MiscPanel(notebook, hook);
 	notebook->AddPage(Player, wxT("Player"), false, 0);
 	notebook->AddPage(Inventory, wxT("Items"), false, 1);
 	notebook->AddPage(Weapons, wxT("Weapons"), false, 2);
+	notebook->AddPage(Misc, wxT("Misc"), false, 3);
 
 	//Timer
 	m_Timer = new wxTimer();
@@ -53,7 +56,7 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30
 	Weapons->Enable(false);
 	Player->Enable(false);
 	Inventory->Enable(false);
-
+	Misc->Enable(false);
 
 	StartHook();//start hook thread
 	startTimer();//start ui thread
@@ -72,6 +75,8 @@ void Main::updateComponents(void)
 		Weapons->Enable(true);
 		Player->Enable(true);
 		Inventory->Enable(true);
+		Misc->Enable(true);
+
 	}
 	else {
 		m_hooked->SetForegroundColour(wxColor(244, 67, 54));
@@ -80,6 +85,8 @@ void Main::updateComponents(void)
 		Weapons->Enable(false);
 		Player->Enable(false);
 		Inventory->Enable(false);
+		Misc->Enable(false);
+
 	}
 }
 
