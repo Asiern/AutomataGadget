@@ -274,13 +274,18 @@ void NieRHook::IgnoreUpgradeMaterials(bool enabled)
 	HANDLE pHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, this->_pID);
 	if (enabled)
 	{ //Enable Ignore Upgrade Materials
-		//Set memory at offset 0x5EE5CE = 90 90 90
+		//Set memory at offset 0x5EE5CE = 90 90 90 to disable Weapon
 		Nop((BYTE*)(this->_baseAddress + 0x5EE5CE), 3, pHandle);
+		//Set memory at offset 0x5EE7F0 = 90 90 90 to disable Pod
+		Nop((BYTE*)(this->_baseAddress + 0x5EE7F0), 3, pHandle);
 	}
 	else
 	{ //Disable Ignore Upgrade Materials
 		//Set memory at offset 0x5EE5CE = previous values
 		Patch((BYTE*)(this->_baseAddress + 0x5EE5CE), (BYTE*)"\x41\x3B\xC2\x7C\x31", 5, pHandle);
+		//Set memory at offset 0x5EE7F0 = previous values
+		Patch((BYTE*)(this->_baseAddress + 0x5EE7F0), (BYTE*)"\x83\xFB\xFF", 3, pHandle);
+
 	}
 	CloseHandle(pHandle);
 }
