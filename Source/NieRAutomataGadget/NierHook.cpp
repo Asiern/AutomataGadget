@@ -384,6 +384,7 @@ bool NieRHook::addWeapon(int ID, int level)
 	WriteProcessMemory(pHandle, (LPVOID)(emptySlot), &ID, sizeof(ID), NULL);			 //Set Weapon ID
 	WriteProcessMemory(pHandle, (LPVOID)(emptySlot + 0x4), &level, sizeof(level), NULL); //Set level, level at offset 0x4 from ID
 	CloseHandle(pHandle);
+	return true;
 }
 
 bool NieRHook::removeWeapon(int ID)
@@ -406,6 +407,7 @@ bool NieRHook::removeWeapon(int ID)
 		}
 		Address += 0x14; //Go to the next slot
 	}
+	return false;
 }
 
 void NieRHook::setHUDOpacity(float opacity)
