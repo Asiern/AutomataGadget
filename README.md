@@ -1,10 +1,10 @@
 ## :hammer: NieR:Automata Gadget
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Asiern/NieRAutomataGadget?style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Asiern/AutomataGadget?style=flat-square)
 
 A multi-purpose focused tool for NieR:Automata.
 
-<img src="https://github.com/Asiern/NieRAutomataGadget/blob/master/README/img.jpg" />
+<img src="https://github.com/Asiern/AutomataGadget/blob/master/README/img.jpg" />
 
 **Using NieR:Hook** <br>
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=asiern&repo=NieRHook)](https://github.com/asiern/NieRHook)
