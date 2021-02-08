@@ -1,3 +1,11 @@
+# Version 1.1.1 
+
+## What's new?
+
+- Added: Ignore Pod Materials
+
+---
+
 # Version 1.1.0 Notes
 
 ## What's new?

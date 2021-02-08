@@ -34,12 +34,10 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 
 ## :clipboard: Release Notes
 
-### Version 1.1.0 | [View Previous Versions](Notes.md)
+### Version 1.1.1 | [View Previous Versions](Notes.md)
 
 #### What's new?
 
-- Items tab
-- Weapons tab
-- Misc tab
+- Added: Ignore Pod Materials
 
 ## :page_with_curl: [License](LICENSE)
