@@ -227,6 +227,10 @@ InventoryPanel::InventoryPanel(wxNotebook* parent, NieRHook* hook) :wxPanel(pare
 	_Key.insert(std::pair< wxString, int>(wxString("Adam's Glasses"), 995));
 	_Key.insert(std::pair< wxString, int>(wxString("Emil mask"), 993));
 	_Key.insert(std::pair< wxString, int>(wxString("Emil's head"), 991));
+	_Key.insert(std::pair< wxString, int>(wxString("Revealing Outfit"), 983));
+	_Key.insert(std::pair< wxString, int>(wxString("Young Man's Outfit"), 984));
+	_Key.insert(std::pair< wxString, int>(wxString("Destroyer Outfit"), 985));
+
 
 	//Panel Components
 	wxArrayString* ItemCategories = new wxArrayString();
