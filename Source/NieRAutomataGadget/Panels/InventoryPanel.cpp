@@ -139,7 +139,7 @@ InventoryPanel::InventoryPanel(wxNotebook* parent, NieRHook* hook) :wxPanel(pare
 	_Materials.insert(std::pair< wxString, int>(wxString("Machine Leg"), 571));
 	_Materials.insert(std::pair< wxString, int>(wxString("Machine Oil"), 628));
 	_Materials.insert(std::pair< wxString, int>(wxString("Machine Torso"), 572));
-	_Materials.insert(std::pair< wxString, int>(wxString("Memory Alloy"), 715));
+	_Materials.insert(std::pair< wxString, int>(wxString("Memory Alloy"), 536));
 	_Materials.insert(std::pair< wxString, int>(wxString("Meteorite"), 588));
 	_Materials.insert(std::pair< wxString, int>(wxString("Meteorite Shard"), 531));
 	_Materials.insert(std::pair< wxString, int>(wxString("Moldavite"), 687));
@@ -230,6 +230,37 @@ InventoryPanel::InventoryPanel(wxNotebook* parent, NieRHook* hook) :wxPanel(pare
 	_Key.insert(std::pair< wxString, int>(wxString("Revealing Outfit"), 983));
 	_Key.insert(std::pair< wxString, int>(wxString("Young Man's Outfit"), 984));
 	_Key.insert(std::pair< wxString, int>(wxString("Destroyer Outfit"), 985));
+	_Key.insert(std::pair< wxString, int>(wxString("CEO Bullets"), 961));
+	_Key.insert(std::pair< wxString, int>(wxString("Dress Module"), 980));
+	_Key.insert(std::pair< wxString, int>(wxString("Machine Mask"), 990));
+	_Key.insert(std::pair< wxString, int>(wxString("Sand Mask"), 994));
+	_Key.insert(std::pair< wxString, int>(wxString("Valve: Left Eye"), 997));
+	_Key.insert(std::pair< wxString, int>(wxString("Valve: Right Eye"), 998));
+	_Key.insert(std::pair< wxString, int>(wxString("Valve: Both Eyes"), 999));
+	_Key.insert(std::pair< wxString, int>(wxString("Valve: Head"), 870));
+	_Key.insert(std::pair< wxString, int>(wxString("Musamune Mask"), 876));
+	_Key.insert(std::pair< wxString, int>(wxString("Matsuda Mask"), 877));
+	_Key.insert(std::pair< wxString, int>(wxString("Sato Mask"), 878));
+	_Key.insert(std::pair< wxString, int>(wxString("White Hair"), 880));
+	_Key.insert(std::pair< wxString, int>(wxString("Black Hair"), 881));
+	_Key.insert(std::pair< wxString, int>(wxString("Brown Hair"), 882));
+	_Key.insert(std::pair< wxString, int>(wxString("Red Hair"), 883));
+	_Key.insert(std::pair< wxString, int>(wxString("Blue Hair"), 884));
+	_Key.insert(std::pair< wxString, int>(wxString("Green Hair"), 885));
+	_Key.insert(std::pair< wxString, int>(wxString("Purple Hair"), 886));
+	_Key.insert(std::pair< wxString, int>(wxString("Ash Grey Hair"), 887));
+	_Key.insert(std::pair< wxString, int>(wxString("Golden Hair"), 888));
+	_Key.insert(std::pair< wxString, int>(wxString("Pastel Pink Hair"), 889));
+	_Key.insert(std::pair< wxString, int>(wxString("Light Blue Hair"), 890));
+	_Key.insert(std::pair< wxString, int>(wxString("Lime Green Hair"), 891));
+	_Key.insert(std::pair< wxString, int>(wxString("Light Purple Hair"), 892));
+	_Key.insert(std::pair< wxString, int>(wxString("Neon White Hair"), 893));
+	_Key.insert(std::pair< wxString, int>(wxString("Neon Yellow Hair"), 894));
+	_Key.insert(std::pair< wxString, int>(wxString("Neon Pink Hair"), 895));
+	_Key.insert(std::pair< wxString, int>(wxString("Neon Blue Hair"), 896));
+	_Key.insert(std::pair< wxString, int>(wxString("Neon Green Hair"), 897));
+	_Key.insert(std::pair< wxString, int>(wxString("Neon Purple Hair"), 898));
+
 
 
 	//Panel Components
