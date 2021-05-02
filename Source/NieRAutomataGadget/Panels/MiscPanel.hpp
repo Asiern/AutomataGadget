@@ -1,7 +1,7 @@
 #pragma once
 #include <wx/wx.h>
 #include <wx/notebook.h>
-#include "../NierHook.hpp"
+#include "../NieRHook/Source/ConsoleApplication1/NierHook.hpp"
 class MiscPanel : public wxPanel {
 public:
 	MiscPanel(wxNotebook* parent, NieRHook* hook);

@@ -33,10 +33,10 @@
     <ClInclude Include="Panels\PlayerPanel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NierHook.hpp">
+    <ClInclude Include="Panels\MiscPanel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Panels\MiscPanel.hpp">
+    <ClInclude Include="NieRHook\Source\ConsoleApplication1\NierHook.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -56,10 +56,10 @@
     <ClCompile Include="Panels\PlayerPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NierHook.cpp">
+    <ClCompile Include="Panels\MiscPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Panels\MiscPanel.cpp">
+    <ClCompile Include="NieRHook\Source\ConsoleApplication1\NierHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

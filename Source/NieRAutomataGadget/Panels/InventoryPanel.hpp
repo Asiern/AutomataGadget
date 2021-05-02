@@ -1,7 +1,7 @@
 #pragma once
 #include <wx/wx.h>
 #include <wx/notebook.h>
-#include "../NierHook.hpp"
+#include "../NieRHook/Source/ConsoleApplication1/NierHook.hpp"
 #include <map>
 
 class InventoryPanel : public wxPanel
