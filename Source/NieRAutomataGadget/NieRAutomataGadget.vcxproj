@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClInclude Include="cApp.h" />
     <ClInclude Include="Main.h" />
-    <ClInclude Include="NierHook.hpp" />
+    <ClInclude Include="NieRHook\Source\ConsoleApplication1\NierHook.hpp" />
     <ClInclude Include="Panels\InventoryPanel.hpp" />
     <ClInclude Include="Panels\MiscPanel.hpp" />
     <ClInclude Include="Panels\PlayerPanel.hpp" />
@@ -31,7 +31,7 @@
   <ItemGroup>
     <ClCompile Include="cApp.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="NierHook.cpp" />
+    <ClCompile Include="NieRHook\Source\ConsoleApplication1\NierHook.cpp" />
     <ClCompile Include="Panels\InventoryPanel.cpp" />
     <ClCompile Include="Panels\MiscPanel.cpp" />
     <ClCompile Include="Panels\PlayerPanel.cpp" />

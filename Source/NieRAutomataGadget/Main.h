@@ -2,7 +2,7 @@
 #include <wx/wx.h>
 #include <wx/notebook.h>
 #include <wx/listctrl.h>
-#include "NierHook.hpp"
+#include "./NieRHook/Source/ConsoleApplication1/NierHook.hpp"
 
 class Main : public wxFrame, public wxThreadHelper
 {
