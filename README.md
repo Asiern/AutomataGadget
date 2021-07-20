@@ -34,13 +34,10 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 
 ## :clipboard: Release Notes
 
-### Version 1.1.3 | [View Previous Versions](Notes.md)
+### Version 2.0.0 | [View Previous Versions](Notes.md)
 
 #### What's new?
 
-`Added missing key items`
-
-#### Fixed
-`Memory Alloy` ID
+`Added latest update support`
 
 ## :page_with_curl: [License](LICENSE)

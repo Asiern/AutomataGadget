@@ -1,8 +1,15 @@
-# Version 1.1.3 
+# Version 2.0.0 | [View Previous Versions](Notes.md)
+
+## What's new?
+
+`Added latest update support`
+
+# Version 1.1.3
 
 ## What's new?
 
 ### Added missing key items
+
 CEO Bullets
 Dress Module
 Machine Mask
@@ -35,22 +42,24 @@ Neon Green Hair
 Neon Purple Hair
 
 ## Fixed
+
 `Memory Alloy` ID
 
 ---
 
-# Version 1.1.2 
+# Version 1.1.2
 
 ## What's new?
 
 ### Added missing key items
+
 `Revealing Outfit` 983
 `Young Man's Outfit` 984
 `Destroyer Outfit` 985
 
 ---
 
-# Version 1.1.1 
+# Version 1.1.1
 
 ## What's new?
 
