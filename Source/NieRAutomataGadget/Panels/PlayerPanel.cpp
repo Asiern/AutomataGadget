@@ -96,6 +96,14 @@ PlayerPanel::PlayerPanel(wxNotebook* parent, NieRHook* hook) : wxPanel(parent, w
 
 	this->SetBackgroundColour(wxColor(255, 255, 255));
 	m_Timer->Start(1000, wxTIMER_CONTINUOUS);
+
+	m_WarpButton->Enable(false);
+	m_WarpComboBox->Enable(false);
+	m_RestorePosition->Enable(false);
+	m_NoClip->Enable(false);
+	m_IgnoreUpgradeMaterials->Enable(false);
+	m_SpeedHack->Enable(false);
+	m_NoCooldown->Enable(false);
 }
 
 PlayerPanel::~PlayerPanel()

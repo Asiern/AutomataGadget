@@ -50,7 +50,7 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30
 	m_hooked->SetFont(font);
 	m_status = new wxStaticText(this, wxID_ANY, "Process: None", wxPoint(margin, margin * 3), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_status->SetFont(font);
-	m_version = new wxStaticText(this, wxID_ANY, "Version: 1.1.3", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_version = new wxStaticText(this, wxID_ANY, "Version: 2.0.0", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_version->SetFont(font);
 
 	Weapons->Enable(false);
@@ -75,8 +75,7 @@ void Main::updateComponents(void)
 		Weapons->Enable(true);
 		Player->Enable(true);
 		Inventory->Enable(true);
-		Misc->Enable(true);
-
+		//Misc->Enable(true);
 	}
 	else {
 		m_hooked->SetForegroundColour(wxColor(244, 67, 54));
@@ -86,7 +85,6 @@ void Main::updateComponents(void)
 		Player->Enable(false);
 		Inventory->Enable(false);
 		Misc->Enable(false);
-
 	}
 }
 
