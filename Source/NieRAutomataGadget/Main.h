@@ -19,7 +19,7 @@ public:
 	wxStaticText* m_hooked = nullptr;
 	wxStaticText* m_status = nullptr;
 	wxStaticText* m_version = nullptr;
-	wxStaticText* m_github = nullptr;
+	wxStaticText* m_gameVer = nullptr;
 
 	//Tabs
 	wxNotebook* notebook = nullptr;

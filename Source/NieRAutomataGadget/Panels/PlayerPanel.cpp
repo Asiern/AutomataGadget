@@ -96,14 +96,6 @@ PlayerPanel::PlayerPanel(wxNotebook* parent, NieRHook* hook) : wxPanel(parent, w
 
 	this->SetBackgroundColour(wxColor(255, 255, 255));
 	m_Timer->Start(1000, wxTIMER_CONTINUOUS);
-
-	m_WarpButton->Enable(false);
-	m_WarpComboBox->Enable(false);
-	m_RestorePosition->Enable(false);
-	m_NoClip->Enable(false);
-	m_IgnoreUpgradeMaterials->Enable(false);
-	m_SpeedHack->Enable(false);
-	m_NoCooldown->Enable(false);
 }
 
 PlayerPanel::~PlayerPanel()
@@ -124,6 +116,26 @@ void PlayerPanel::OnTimer(wxTimerEvent&)
 		m_XposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getXPosition()));
 		m_YposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getYPosition()));
 		m_ZposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getZPosition()));
+		switch (hook->getVersion()) {
+		case VER_0_0_1:
+			m_WarpButton->Enable(true);
+			m_WarpComboBox->Enable(true);
+			m_RestorePosition->Enable(true);
+			m_NoClip->Enable(true);
+			m_IgnoreUpgradeMaterials->Enable(true);
+			m_SpeedHack->Enable(true);
+			m_NoCooldown->Enable(true);
+			break;
+		case VER_0_0_2:
+			m_WarpButton->Enable(false);
+			m_WarpComboBox->Enable(false);
+			m_RestorePosition->Enable(false);
+			m_NoClip->Enable(false);
+			m_IgnoreUpgradeMaterials->Enable(false);
+			m_SpeedHack->Enable(false);
+			m_NoCooldown->Enable(false);
+			break;
+		}
 	}
 	else {
 	}

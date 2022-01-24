@@ -31,13 +31,14 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 - `Manage Weapons` - Add/Remove weapons
 - `HUD opacity` - set the HUD opacity
 - `RGB color combination` - set the game color combination
+- `Version auto-detection` - Detect the game version and set the corresponding offsets
 
 ## :clipboard: Release Notes
 
-### Version 2.0.0 | [View Previous Versions](Notes.md)
+### Version 2.1.0 | [View Previous Versions](Notes.md)
 
 #### What's new?
 
-`Added latest update support`
+`Game version auto-detection`: Gadget now is compatible with both version v0.0.1 and v0.0.2.
 
 ## :page_with_curl: [License](LICENSE)

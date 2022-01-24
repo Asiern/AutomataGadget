@@ -50,8 +50,11 @@ Main::Main() : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30
 	m_hooked->SetFont(font);
 	m_status = new wxStaticText(this, wxID_ANY, "Process: None", wxPoint(margin, margin * 3), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_status->SetFont(font);
-	m_version = new wxStaticText(this, wxID_ANY, "Version: 2.0.0", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_version = new wxStaticText(this, wxID_ANY, "Version: 2.1.0", wxPoint(width - margin * 6, margin), wxDefaultSize, 0, wxStaticTextNameStr);
 	m_version->SetFont(font);
+	m_gameVer = new wxStaticText(this, wxID_ANY, "Game Version: ", wxPoint(width - margin * 9, margin * 3), wxDefaultSize, 0, wxStaticTextNameStr);
+	m_gameVer->SetFont(font);
+
 
 	Weapons->Enable(false);
 	Player->Enable(false);
@@ -72,6 +75,17 @@ void Main::updateComponents(void)
 		m_hooked->SetForegroundColour(wxColor(76, 175, 80));
 		m_hooked->SetLabelText("Hooked: Yes");
 		m_status->SetLabel("Process: " + wxString::Format(wxT("%i"), hook->getProcessID()));
+		switch (hook->getVersion()) {
+		case 0:
+			m_gameVer->SetLabel("Game Version: ");
+			break;
+		case 1:
+			m_gameVer->SetLabel("Game Version: 1.0.1");
+			break;
+		case 2:
+			m_gameVer->SetLabel("Game Version: 1.0.2");
+			break;
+		}
 		Weapons->Enable(true);
 		Player->Enable(true);
 		Inventory->Enable(true);
@@ -80,6 +94,7 @@ void Main::updateComponents(void)
 	else {
 		m_hooked->SetForegroundColour(wxColor(244, 67, 54));
 		m_hooked->SetLabelText("Hooked: No");
+		m_gameVer->SetLabel("Game Version: ");
 		m_status->SetLabel("Process: None");
 		Weapons->Enable(false);
 		Player->Enable(false);
