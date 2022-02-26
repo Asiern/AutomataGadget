@@ -1,8 +1,8 @@
 #include "Main.h"
 // #include "resource.h"
 #include "InventoryPanel.hpp"
-#include "MiscPanel.hpp"
 #include "PlayerPanel.hpp"
+#include "SettingsPanel.hpp"
 #include "WeaponPanel.hpp"
 
 wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
@@ -32,11 +32,11 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     Player = new PlayerPanel(notebook, hook);
     Inventory = new InventoryPanel(notebook, hook);
     Weapons = new WeaponPanel(notebook, hook);
-    Misc = new MiscPanel(notebook, hook);
+    Settings = new SettingsPanel(notebook, hook);
     notebook->AddPage(Player, wxT("Player"), false, 0);
     notebook->AddPage(Inventory, wxT("Items"), false, 1);
     notebook->AddPage(Weapons, wxT("Weapons"), false, 2);
-    notebook->AddPage(Misc, wxT("Misc"), false, 3);
+    notebook->AddPage(Settings, wxT("Settings"), false, 3);
 
     // Timer
     m_Timer = new wxTimer();
@@ -60,7 +60,7 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     Weapons->Enable(false);
     Player->Enable(false);
     Inventory->Enable(false);
-    Misc->Enable(false);
+    Settings->Enable(false);
 
     StartHook();  // start hook thread
     startTimer(); // start ui thread
@@ -92,7 +92,7 @@ void Main::updateComponents(void)
         Weapons->Enable(true);
         Player->Enable(true);
         Inventory->Enable(true);
-        // Misc->Enable(true);
+        Settings->Enable(true);
     }
     else
     {
@@ -103,7 +103,7 @@ void Main::updateComponents(void)
         Weapons->Enable(false);
         Player->Enable(false);
         Inventory->Enable(false);
-        Misc->Enable(false);
+        Settings->Enable(false);
     }
 }
 

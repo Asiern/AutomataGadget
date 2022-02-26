@@ -1,8 +1,8 @@
-#include "MiscPanel.hpp"
+#include "SettingsPanel.hpp"
 
-wxBEGIN_EVENT_TABLE(MiscPanel, wxPanel) wxEND_EVENT_TABLE()
+wxBEGIN_EVENT_TABLE(SettingsPanel, wxPanel) wxEND_EVENT_TABLE()
 
-    MiscPanel::MiscPanel(wxNotebook* parent, NieRHook* hook)
+    SettingsPanel::SettingsPanel(wxNotebook* parent, NieRHook* hook)
     : wxPanel(parent, wxID_ANY)
 {
     this->hook = hook;
@@ -11,7 +11,7 @@ wxBEGIN_EVENT_TABLE(MiscPanel, wxPanel) wxEND_EVENT_TABLE()
     HUD = new wxStaticText(graphics, wxID_ANY, "HUD Opacity", wxPoint(20, 30), wxDefaultSize, 0, wxStaticTextNameStr);
     HUDOpacity = new wxSlider(graphics, wxID_ANY, 100, 1, 100, wxPoint(120, 28), wxDefaultSize, 0, wxDefaultValidator,
                               wxSliderNameStr);
-    // HUDOpacity->Bind(wxEVT_SCROLLBAR, &MiscPanel::OnSlideHUD, this);
+    // HUDOpacity->Bind(wxEVT_SCROLLBAR, &SettingsPanel::OnSlideHUD, this);
 
     R = new wxStaticText(graphics, wxID_ANY, "Red", wxPoint(20, 60), wxDefaultSize, 0, wxStaticTextNameStr);
     RSlider = new wxSlider(graphics, wxID_ANY, 100, 0, 100, wxPoint(120, 58), wxDefaultSize, 0, wxDefaultValidator,
@@ -29,16 +29,16 @@ wxBEGIN_EVENT_TABLE(MiscPanel, wxPanel) wxEND_EVENT_TABLE()
 
     Save = new wxButton(this, wxID_ANY, "Save Changes", wxPoint(20, 400), wxDefaultSize, 0, wxDefaultValidator,
                         wxButtonNameStr);
-    Save->Bind(wxEVT_BUTTON, &MiscPanel::OnSavePressed, this);
+    Save->Bind(wxEVT_BUTTON, &SettingsPanel::OnSavePressed, this);
 
     this->SetBackgroundColour(wxColor(255, 255, 255));
 }
 
-MiscPanel::~MiscPanel()
+SettingsPanel::~SettingsPanel()
 {
 }
 
-void MiscPanel::OnSavePressed(wxCommandEvent& evt)
+void SettingsPanel::OnSavePressed(wxCommandEvent& evt)
 {
     hook->setHUDOpacity((float)HUDOpacity->GetValue() / 100);
     hook->setColor((float)RSlider->GetValue() / 100, (float)GSlider->GetValue() / 100,

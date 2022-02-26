@@ -27,7 +27,7 @@ class Main : public wxFrame, public wxThreadHelper
     wxPanel* Player = nullptr;
     wxPanel* Inventory = nullptr;
     wxPanel* Weapons = nullptr;
-    wxPanel* Misc = nullptr;
+    wxPanel* Settings = nullptr;
 
   protected:
     void updateComponents(void);

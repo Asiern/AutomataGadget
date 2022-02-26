@@ -8,14 +8,14 @@ set(
     include/Main.h
     include/cApp.h
     include/InventoryPanel.hpp
-    include/MiscPanel.hpp
+    include/SettingsPanel.hpp
     include/PlayerPanel.hpp
     include/WeaponPanel.hpp
 
     src/Main.cpp
     src/cApp.cpp
     src/InventoryPanel.cpp
-    src/MiscPanel.cpp
+    src/SettingsPanel.cpp
     src/PlayerPanel.cpp
     src/WeaponPanel.cpp
 )
