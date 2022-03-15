@@ -1,15 +1,15 @@
 #include "Main.h"
-// #include "resource.h"
 #include "InventoryPanel.hpp"
 #include "PlayerPanel.hpp"
 #include "SettingsPanel.hpp"
 #include "WeaponPanel.hpp"
-
 wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
 
     Main::Main()
     : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30), wxSize(400, 600))
 {
+    // Icon
+    this->SetIcon(wxICON(AAAA));
     // Hook Thread bind
     Bind(wxEVT_THREAD, &Main::OnThreadUpdate, this);
 
@@ -53,7 +53,7 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     m_version = new wxStaticText(this, wxID_ANY, "Version: 2.1.0", wxPoint(width - margin * 6, margin), wxDefaultSize,
                                  0, wxStaticTextNameStr);
     m_version->SetFont(font);
-    m_gameVer = new wxStaticText(this, wxID_ANY, "Game Version: ", wxPoint(width - margin * 9, margin * 3),
+    m_gameVer = new wxStaticText(this, wxID_ANY, "Game Version: None", wxPoint(width - margin * 9, margin * 3),
                                  wxDefaultSize, 0, wxStaticTextNameStr);
     m_gameVer->SetFont(font);
 
@@ -98,7 +98,7 @@ void Main::updateComponents(void)
     {
         m_hooked->SetForegroundColour(wxColor(244, 67, 54));
         m_hooked->SetLabelText("Hooked: No");
-        m_gameVer->SetLabel("Game Version: ");
+        m_gameVer->SetLabel("Game Version: None");
         m_status->SetLabel("Process: None");
         Weapons->Enable(false);
         Player->Enable(false);

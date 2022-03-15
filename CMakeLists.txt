@@ -11,6 +11,7 @@ set(
     include/SettingsPanel.hpp
     include/PlayerPanel.hpp
     include/WeaponPanel.hpp
+    include/defines.h
 
     src/Main.cpp
     src/cApp.cpp
@@ -21,7 +22,8 @@ set(
 )
 
 add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
-set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
+target_sources(${PROJECT_NAME} PRIVATE resources/resources.rc)
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME}) 
 include_directories(include)
 include_directories(lib/NieRHook/include)
 
