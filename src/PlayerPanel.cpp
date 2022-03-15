@@ -1,4 +1,5 @@
 #include "PlayerPanel.hpp"
+#include "defines.h"
 
 wxBEGIN_EVENT_TABLE(PlayerPanel, wxPanel) wxEND_EVENT_TABLE()
 
@@ -6,9 +7,6 @@ wxBEGIN_EVENT_TABLE(PlayerPanel, wxPanel) wxEND_EVENT_TABLE()
     : wxPanel(parent, wxID_ANY)
 {
     this->hook = hook;
-    // Const sizes
-    const int margin = 10;
-    const int width = 365;
 
     // Timer
     m_Timer = new wxTimer();
@@ -117,9 +115,8 @@ wxBEGIN_EVENT_TABLE(PlayerPanel, wxPanel) wxEND_EVENT_TABLE()
     Locations->Add("Underground Cave (Elevator)", 1);
     Locations->Add("Underground Cave (Entrance)", 1);
     m_WarpComboBox =
-        new wxComboBox(this, wxID_ANY, "", wxPoint(2 * margin, 410), wxSize((width - (6 * margin)) * 2 / 3, 20),
+        new wxComboBox(this, wxID_ANY, "", wxPoint(4 * margin, 410), wxSize((width - (9 * margin)) * 2 / 3, 20),
                        *Locations, 0, wxDefaultValidator, wxComboBoxNameStr);
-
     delete Locations;
 
     this->SetBackgroundColour(wxColor(255, 255, 255));
