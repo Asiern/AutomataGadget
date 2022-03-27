@@ -50,7 +50,7 @@ wxBEGIN_EVENT_TABLE(PlayerPanel, wxPanel) wxEND_EVENT_TABLE()
 
     // Position
     wxSize TextCtrlSize = wxSize(80, 20);
-    m_PositionBox = new wxStaticBox(this, wxID_ANY, "Position", wxPoint(margin, 250), wxSize(width - 30, 200), 1,
+    m_PositionBox = new wxStaticBox(this, wxID_ANY, "Position", wxPoint(margin, 250), wxSize(width - 30, 210), 1,
                                     wxStaticBoxNameStr);
     m_XText = new wxStaticText(this, wxID_ANY, "X", wxPoint(20, 303), wxDefaultSize, 0, wxStaticTextNameStr);
     m_YText = new wxStaticText(this, wxID_ANY, "Y", wxPoint(20, 338), wxDefaultSize, 0, wxStaticTextNameStr);
@@ -119,7 +119,7 @@ wxBEGIN_EVENT_TABLE(PlayerPanel, wxPanel) wxEND_EVENT_TABLE()
                        *Locations, 0, wxDefaultValidator, wxComboBoxNameStr);
     delete Locations;
 
-    this->SetBackgroundColour(wxColor(255, 255, 255));
+    this->SetBackgroundColour(foregroundColor);
     m_Timer->Start(1000, wxTIMER_CONTINUOUS);
 }
 
@@ -131,7 +131,7 @@ PlayerPanel::~PlayerPanel()
 
 void PlayerPanel::OnTimer(wxTimerEvent&)
 {
-    if (hook->isHooked())
+    if (hook->isHooked() && hook->isSavefileLoaded())
     {
         // Player
         m_Level->SetLabel("Level: " + wxString::Format(wxT("%i"), hook->getLevel()));

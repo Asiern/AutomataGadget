@@ -1,4 +1,6 @@
 #include "InventoryPanel.hpp"
+#include "defines.h"
+
 wxBEGIN_EVENT_TABLE(InventoryPanel, wxPanel) wxEND_EVENT_TABLE()
 
     int InventoryPanel::getItemID(wxString name, wxString category)
@@ -301,7 +303,7 @@ InventoryPanel::InventoryPanel(wxNotebook* parent, NieRHook* hook) : wxPanel(par
     m_Quantity =
         new wxTextCtrl(this, wxID_ANY, "1", wxPoint(100, 400), wxDefaultSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
 
-    this->SetBackgroundColour(wxColor(255, 255, 255));
+    this->SetBackgroundColour(foregroundColor);
     m_ItemCategoryComboBox->SetSelection(0);
 }
 
