@@ -43,7 +43,7 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     // Hook status text
     m_hooked =
         new wxStaticText(this, wxID_ANY, "Hooked: No", wxPoint(margin, margin), wxDefaultSize, 0, wxStaticTextNameStr);
-    m_hooked->SetForegroundColour(foregroundColor);
+    m_hooked->SetForegroundColour(redColor);
     m_hooked->SetFont(font);
     m_status = new wxStaticText(this, wxID_ANY, "Process: None", wxPoint(margin, margin * 3), wxDefaultSize, 0,
                                 wxStaticTextNameStr);
