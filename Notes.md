@@ -1,4 +1,10 @@
-# Version 2.0.0 | [View Previous Versions](Notes.md)
+# Version 2.1.0
+
+## What's new?
+
+`Game version auto detection`: Gadget now is compatible with both version v0.0.1 and v0.0.2
+
+# Version 2.0.0
 
 ## What's new?
 
