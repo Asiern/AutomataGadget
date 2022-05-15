@@ -3,3 +3,6 @@ build
 
 # VSCode
 .vscode
+
+# Visual Studio
+*.aps

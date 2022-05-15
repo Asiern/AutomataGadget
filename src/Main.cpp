@@ -1,42 +1,40 @@
 #include "Main.h"
-// #include "resource.h"
 #include "InventoryPanel.hpp"
-#include "MiscPanel.hpp"
 #include "PlayerPanel.hpp"
+#include "SettingsPanel.hpp"
 #include "WeaponPanel.hpp"
+#include "defines.h"
 
 wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
 
     Main::Main()
-    : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxPoint(30, 30), wxSize(400, 600))
+    : wxFrame(nullptr, wxID_ANY, "NieR:Automata Gadget", wxDefaultPosition, windowSize)
 {
+    // Icon
+    this->SetIcon(wxICON(AAAA));
+
     // Hook Thread bind
     Bind(wxEVT_THREAD, &Main::OnThreadUpdate, this);
 
     // Frame style
-    // this->SetIcon(wxICON(IDI_ICON1));
-    this->SetMaxSize(wxSize(400, 600));
-    this->SetMinSize(wxSize(400, 600));
-    this->SetBackgroundColour(wxColor(242, 242, 242));
+    this->SetMaxSize(windowSize);
+    this->SetMinSize(windowSize);
+    this->SetBackgroundColour(backgroundColor);
     wxFont font = wxFont(8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false);
-
-    // Const sizes
-    const int margin = 10;
-    const int width = 365;
 
     // Initialize hook
     hook = new NieRHook();
 
     // Create Notebook
-    notebook = new wxNotebook(this, wxID_ANY, wxPoint(margin, margin * 6), wxSize(width, 485), 0, wxNotebookNameStr);
+    notebook = new wxNotebook(this, wxID_ANY, wxPoint(margin, margin * 6), wxSize(width, 495), 0, wxNotebookNameStr);
     Player = new PlayerPanel(notebook, hook);
     Inventory = new InventoryPanel(notebook, hook);
     Weapons = new WeaponPanel(notebook, hook);
-    Misc = new MiscPanel(notebook, hook);
+    // Settings = new SettingsPanel(notebook, hook);
     notebook->AddPage(Player, wxT("Player"), false, 0);
     notebook->AddPage(Inventory, wxT("Items"), false, 1);
     notebook->AddPage(Weapons, wxT("Weapons"), false, 2);
-    notebook->AddPage(Misc, wxT("Misc"), false, 3);
+    // notebook->AddPage(Settings, wxT("Settings"), false, 3);
 
     // Timer
     m_Timer = new wxTimer();
@@ -45,7 +43,7 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     // Hook status text
     m_hooked =
         new wxStaticText(this, wxID_ANY, "Hooked: No", wxPoint(margin, margin), wxDefaultSize, 0, wxStaticTextNameStr);
-    m_hooked->SetForegroundColour(wxColor(244, 67, 54));
+    m_hooked->SetForegroundColour(redColor);
     m_hooked->SetFont(font);
     m_status = new wxStaticText(this, wxID_ANY, "Process: None", wxPoint(margin, margin * 3), wxDefaultSize, 0,
                                 wxStaticTextNameStr);
@@ -53,14 +51,14 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     m_version = new wxStaticText(this, wxID_ANY, "Version: 2.1.0", wxPoint(width - margin * 6, margin), wxDefaultSize,
                                  0, wxStaticTextNameStr);
     m_version->SetFont(font);
-    m_gameVer = new wxStaticText(this, wxID_ANY, "Game Version: ", wxPoint(width - margin * 9, margin * 3),
+    m_gameVer = new wxStaticText(this, wxID_ANY, "Game Version: None", wxPoint(width - margin * 9, margin * 3),
                                  wxDefaultSize, 0, wxStaticTextNameStr);
     m_gameVer->SetFont(font);
 
     Weapons->Enable(false);
     Player->Enable(false);
     Inventory->Enable(false);
-    Misc->Enable(false);
+    // Settings->Enable(false);
 
     StartHook();  // start hook thread
     startTimer(); // start ui thread
@@ -74,7 +72,7 @@ void Main::updateComponents(void)
 {
     if (hook->isHooked())
     {
-        m_hooked->SetForegroundColour(wxColor(76, 175, 80));
+        m_hooked->SetForegroundColour(greenColor);
         m_hooked->SetLabelText("Hooked: Yes");
         m_status->SetLabel("Process: " + wxString::Format(wxT("%i"), hook->getProcessID()));
         switch (hook->getVersion())
@@ -89,21 +87,18 @@ void Main::updateComponents(void)
             m_gameVer->SetLabel("Game Version: 1.0.2");
             break;
         }
-        Weapons->Enable(true);
-        Player->Enable(true);
-        Inventory->Enable(true);
-        // Misc->Enable(true);
+        if (hook->isSavefileLoaded())
+            enableUI();
+        else
+            disableUI();
     }
     else
     {
-        m_hooked->SetForegroundColour(wxColor(244, 67, 54));
+        m_hooked->SetForegroundColour(redColor);
         m_hooked->SetLabelText("Hooked: No");
-        m_gameVer->SetLabel("Game Version: ");
+        m_gameVer->SetLabel("Game Version: None");
         m_status->SetLabel("Process: None");
-        Weapons->Enable(false);
-        Player->Enable(false);
-        Inventory->Enable(false);
-        Misc->Enable(false);
+        disableUI();
     }
 }
 
@@ -158,6 +153,22 @@ void Main::StartHook()
     }
 }
 
+void Main::disableUI(void)
+{
+    Weapons->Enable(false);
+    Player->Enable(false);
+    Inventory->Enable(false);
+    // Settings->Enable(false);
+}
+
+void Main::enableUI(void)
+{
+    Weapons->Enable(true);
+    Player->Enable(true);
+    Inventory->Enable(true);
+    // Settings->Enable(true);
+}
+
 wxThread::ExitCode Main::Entry()
 {
     while (!GetThread()->TestDestroy())
@@ -177,10 +188,10 @@ wxThread::ExitCode Main::Entry()
 
 void Main::OnClose(wxCloseEvent&)
 {
+    hook->stop();
     m_Timer->Stop();
     if (hook->isHooked())
     {
-        hook->stop();
         GetThread()->TestDestroy();
         GetThread()->Delete();
     }

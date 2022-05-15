@@ -2,11 +2,11 @@
 #include "NierHook.hpp"
 #include <wx/notebook.h>
 #include <wx/wx.h>
-class MiscPanel : public wxPanel
+class SettingsPanel : public wxPanel
 {
   public:
-    MiscPanel(wxNotebook* parent, NieRHook* hook);
-    ~MiscPanel();
+    SettingsPanel(wxNotebook* parent, NieRHook* hook);
+    ~SettingsPanel();
 
   protected:
     void OnSavePressed(wxCommandEvent& evt);

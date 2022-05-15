@@ -10,7 +10,7 @@ class Main : public wxFrame, public wxThreadHelper
     Main();
     ~Main();
 
-  public:
+  private:
     NieRHook* hook = nullptr;
 
     // UI Thread Timer
@@ -27,7 +27,7 @@ class Main : public wxFrame, public wxThreadHelper
     wxPanel* Player = nullptr;
     wxPanel* Inventory = nullptr;
     wxPanel* Weapons = nullptr;
-    wxPanel* Misc = nullptr;
+    wxPanel* Settings = nullptr;
 
   protected:
     void updateComponents(void);
@@ -38,5 +38,7 @@ class Main : public wxFrame, public wxThreadHelper
     void OnThreadUpdate(wxThreadEvent& evt);
     void OnClose(wxCloseEvent& evt);
     void StartHook(void);
+    void disableUI(void);
+    void enableUI(void);
     wxDECLARE_EVENT_TABLE();
 };

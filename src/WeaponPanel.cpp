@@ -1,5 +1,5 @@
 #include "WeaponPanel.hpp"
-
+#include "defines.h"
 wxBEGIN_EVENT_TABLE(WeaponPanel, wxPanel)
     wxEND_EVENT_TABLE() WeaponPanel::WeaponPanel(wxNotebook* parent, NieRHook* hook)
     : wxPanel(parent, wxID_ANY)
@@ -79,7 +79,7 @@ wxBEGIN_EVENT_TABLE(WeaponPanel, wxPanel)
 
     w_Status = new wxStaticText(this, wxID_ANY, "", wxPoint(215, 420), wxDefaultSize, 0, wxStaticTextNameStr);
 
-    this->SetBackgroundColour(wxColor(255, 255, 255));
+    this->SetBackgroundColour(foregroundColor);
 }
 WeaponPanel::~WeaponPanel()
 {
