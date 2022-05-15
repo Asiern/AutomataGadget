@@ -188,10 +188,10 @@ wxThread::ExitCode Main::Entry()
 
 void Main::OnClose(wxCloseEvent&)
 {
+    hook->stop();
     m_Timer->Stop();
     if (hook->isHooked())
     {
-        hook->stop();
         GetThread()->TestDestroy();
         GetThread()->Delete();
     }
