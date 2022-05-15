@@ -30,11 +30,11 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     Player = new PlayerPanel(notebook, hook);
     Inventory = new InventoryPanel(notebook, hook);
     Weapons = new WeaponPanel(notebook, hook);
-    Settings = new SettingsPanel(notebook, hook);
+    // Settings = new SettingsPanel(notebook, hook);
     notebook->AddPage(Player, wxT("Player"), false, 0);
     notebook->AddPage(Inventory, wxT("Items"), false, 1);
     notebook->AddPage(Weapons, wxT("Weapons"), false, 2);
-    notebook->AddPage(Settings, wxT("Settings"), false, 3);
+    // notebook->AddPage(Settings, wxT("Settings"), false, 3);
 
     // Timer
     m_Timer = new wxTimer();
@@ -58,7 +58,7 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     Weapons->Enable(false);
     Player->Enable(false);
     Inventory->Enable(false);
-    Settings->Enable(false);
+    // Settings->Enable(false);
 
     StartHook();  // start hook thread
     startTimer(); // start ui thread
@@ -158,7 +158,7 @@ void Main::disableUI(void)
     Weapons->Enable(false);
     Player->Enable(false);
     Inventory->Enable(false);
-    Settings->Enable(false);
+    // Settings->Enable(false);
 }
 
 void Main::enableUI(void)
@@ -166,7 +166,7 @@ void Main::enableUI(void)
     Weapons->Enable(true);
     Player->Enable(true);
     Inventory->Enable(true);
-    Settings->Enable(true);
+    // Settings->Enable(true);
 }
 
 wxThread::ExitCode Main::Entry()
