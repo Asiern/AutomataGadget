@@ -2,7 +2,10 @@
 
 ## What's new?
 
-`Game version auto detection`: Gadget now is compatible with both version v0.0.1 and v0.0.2
+`Game version auto-detection`: Gadget now is compatible with both version v0.0.1 and v0.0.2.
+`Updated NieRHook to v2.0`
+`Savefile detection`
+`CMake support`
 
 # Version 2.0.0
 

@@ -4,7 +4,7 @@
 
 A multi-purpose focused tool for NieR:Automata.
 
-<img src="https://github.com/Asiern/AutomataGadget/blob/master/README/img.jpg" />
+<img src="https://github.com/Asiern/AutomataGadget/blob/master/README/player.png" />
 
 **Using NieR:Hook** <br>
 [![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=asiern&repo=NieRHook)](https://github.com/asiern/NieRHook)
@@ -40,5 +40,8 @@ All features will be disabled until Gadget attaches to the game (indicated at th
 #### What's new?
 
 `Game version auto-detection`: Gadget now is compatible with both version v0.0.1 and v0.0.2.
+`Updated NieRHook to v2.0`
+`Savefile detection`
+`CMake support`
 
 ## :page_with_curl: [License](LICENSE)
