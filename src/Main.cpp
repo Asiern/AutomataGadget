@@ -48,12 +48,21 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     m_status = new wxStaticText(this, wxID_ANY, "Process: None", wxPoint(margin, margin * 3), wxDefaultSize, 0,
                                 wxStaticTextNameStr);
     m_status->SetFont(font);
-    m_version = new wxStaticText(this, wxID_ANY, "Version: 2.1.0", wxPoint(width - margin * 6, margin), wxDefaultSize,
+    m_version = new wxStaticText(this, wxID_ANY, "Version: 2.1.1", wxPoint(width - margin * 6, margin), wxDefaultSize,
                                  0, wxStaticTextNameStr);
     m_version->SetFont(font);
-    m_gameVer = new wxStaticText(this, wxID_ANY, "Game Version: None", wxPoint(width - margin * 9, margin * 3),
-                                 wxDefaultSize, 0, wxStaticTextNameStr);
-    m_gameVer->SetFont(font);
+    /*  m_gameVer = new wxStaticText(this, wxID_ANY, "Game Version: None", wxPoint(width - margin * 9, margin * 3),
+                                   wxDefaultSize, 0, wxStaticTextNameStr);
+      m_gameVer->SetFont(font);*/
+
+    wxArrayString* versions = new wxArrayString();
+    versions->Insert("Auto", 0);
+    versions->Insert("0.1", 1);
+    versions->Insert("0.2", 2);
+    wxComboBox* m_version_selector =
+        new wxComboBox(this, wxID_ANY, "Auto", wxPoint(width - margin * 5, margin * 3), wxDefaultSize, *versions,
+                       wxCB_READONLY | wxCB_SIMPLE, wxDefaultValidator, wxComboBoxNameStr);
+    m_version_selector->Bind(wxEVT_COMBOBOX, &Main::onChangeVersion, this);
 
     Weapons->Enable(false);
     Player->Enable(false);
@@ -75,28 +84,25 @@ void Main::updateComponents(void)
         m_hooked->SetForegroundColour(greenColor);
         m_hooked->SetLabelText("Hooked: Yes");
         m_status->SetLabel("Process: " + wxString::Format(wxT("%i"), hook->getProcessID()));
-        switch (hook->getVersion())
-        {
-        case 0:
-            m_gameVer->SetLabel("Game Version: ");
-            break;
-        case 1:
-            m_gameVer->SetLabel("Game Version: 1.0.1");
-            break;
-        case 2:
-            m_gameVer->SetLabel("Game Version: 1.0.2");
-            break;
-        }
-        if (hook->isSavefileLoaded())
-            enableUI();
-        else
-            disableUI();
+        /* switch (hook->getVersion())
+         {
+         case 0:
+             m_gameVer->SetLabel("Game Version: ");
+             break;
+         case 1:
+             m_gameVer->SetLabel("Game Version: 1.0.1");
+             break;
+         case 2:
+             m_gameVer->SetLabel("Game Version: 1.0.2");
+             break;
+         }*/
+        enableUI();
     }
     else
     {
         m_hooked->SetForegroundColour(redColor);
         m_hooked->SetLabelText("Hooked: No");
-        m_gameVer->SetLabel("Game Version: None");
+        // m_gameVer->SetLabel("Game Version: None");
         m_status->SetLabel("Process: None");
         disableUI();
     }
@@ -169,6 +175,26 @@ void Main::enableUI(void)
     // Settings->Enable(true);
 }
 
+void Main::onChangeVersion(wxCommandEvent& evt)
+{
+    switch (evt.GetSelection())
+    {
+    case 0:
+        this->version = -1;
+        break;
+    case 1:
+        this->version = 001;
+        break;
+    case 2:
+        this->version = 002;
+        break;
+    default:
+        this->version = -1;
+        break;
+    }
+    this->hook->stop();
+}
+
 wxThread::ExitCode Main::Entry()
 {
     while (!GetThread()->TestDestroy())
@@ -176,7 +202,7 @@ wxThread::ExitCode Main::Entry()
         hook->hookStatus(); // Update status
         if (!hook->isHooked())
         {
-            hook->start(); // Start hook
+            hook->start(this->version); // Start hook
         }
         else
         {

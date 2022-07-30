@@ -15,12 +15,14 @@ class Main : public wxFrame, public wxThreadHelper
 
     // UI Thread Timer
     wxTimer* m_Timer = nullptr;
+    int version = -1;
 
     // HOOK STATUS
     wxStaticText* m_hooked = nullptr;
     wxStaticText* m_status = nullptr;
     wxStaticText* m_version = nullptr;
     wxStaticText* m_gameVer = nullptr;
+    wxComboBox* m_version_selector = nullptr;
 
     // Tabs
     wxNotebook* notebook = nullptr;
@@ -40,5 +42,6 @@ class Main : public wxFrame, public wxThreadHelper
     void StartHook(void);
     void disableUI(void);
     void enableUI(void);
+    void onChangeVersion(wxCommandEvent& evt);
     wxDECLARE_EVENT_TABLE();
 };

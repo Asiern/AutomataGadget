@@ -157,7 +157,7 @@ void PlayerPanel::OnTimer(wxTimerEvent&)
         case VER_0_0_2:
             m_WarpButton->Enable(false);
             m_WarpComboBox->Enable(false);
-            m_RestorePosition->Enable(false);
+            // m_RestorePosition->Enable(false);
             m_NoClip->Enable(false);
             m_IgnoreUpgradeMaterials->Enable(false);
             m_SpeedHack->Enable(false);
