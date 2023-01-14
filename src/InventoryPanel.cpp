@@ -154,7 +154,7 @@ InventoryPanel::InventoryPanel(wxNotebook* parent, NieRHook* hook) : wxPanel(par
     _Materials.insert(std::pair<wxString, int>(wxString("Machine Oil"), 628));
     _Materials.insert(std::pair<wxString, int>(wxString("Machine Torso"), 572));
     _Materials.insert(std::pair<wxString, int>(wxString("Memory Alloy"), 536));
-    _Materials.insert(std::pair<wxString, int>(wxString("Meteorite"), 588));
+    _Materials.insert(std::pair<wxString, int>(wxString("Meteorite"), 688));
     _Materials.insert(std::pair<wxString, int>(wxString("Meteorite Shard"), 531));
     _Materials.insert(std::pair<wxString, int>(wxString("Moldavite"), 687));
     _Materials.insert(std::pair<wxString, int>(wxString("Moose Meat"), 518));
