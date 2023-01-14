@@ -145,7 +145,7 @@ void PlayerPanel::OnTimer(wxTimerEvent&)
         m_ZposTextCtrl->SetLabel(wxString::Format(wxT("%f"), hook->getZPosition()));
         switch (hook->getVersion())
         {
-        case VER_0_0_1:
+        case VER_1_0_1:
             m_WarpButton->Enable(true);
             m_WarpComboBox->Enable(true);
             m_RestorePosition->Enable(true);
@@ -154,7 +154,7 @@ void PlayerPanel::OnTimer(wxTimerEvent&)
             m_SpeedHack->Enable(true);
             m_NoCooldown->Enable(true);
             break;
-        case VER_0_0_2:
+        case VER_1_0_2:
             m_WarpButton->Enable(false);
             m_WarpComboBox->Enable(false);
             // m_RestorePosition->Enable(false);
