@@ -48,7 +48,7 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
     m_status = new wxStaticText(this, wxID_ANY, "Process: None", wxPoint(margin, margin * 3), wxDefaultSize, 0,
                                 wxStaticTextNameStr);
     m_status->SetFont(font);
-    m_version = new wxStaticText(this, wxID_ANY, "Version: 2.1.1", wxPoint(width - margin * 6, margin), wxDefaultSize,
+    m_version = new wxStaticText(this, wxID_ANY, "Version: 2.1.2", wxPoint(width - margin * 6, margin), wxDefaultSize,
                                  0, wxStaticTextNameStr);
     m_version->SetFont(font);
     /*  m_gameVer = new wxStaticText(this, wxID_ANY, "Game Version: None", wxPoint(width - margin * 9, margin * 3),
