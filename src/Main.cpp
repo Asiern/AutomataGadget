@@ -56,11 +56,11 @@ wxBEGIN_EVENT_TABLE(Main, wxFrame) EVT_CLOSE(Main::OnClose) wxEND_EVENT_TABLE()
       m_gameVer->SetFont(font);*/
 
     wxArrayString* versions = new wxArrayString();
-    versions->Insert("0.2", 0);
+    versions->Insert("Auto", 0);
     versions->Insert("0.1", 1);
-    versions->Insert("Auto", 2);
+    versions->Insert("0.2", 2);
     wxComboBox* m_version_selector =
-        new wxComboBox(this, wxID_ANY, "Auto", wxPoint(width - margin * 5, margin * 3), wxDefaultSize, *versions,
+        new wxComboBox(this, wxID_ANY, "0.2", wxPoint(width - margin * 5, margin * 3), wxDefaultSize, *versions,
                        wxCB_READONLY | wxCB_SIMPLE, wxDefaultValidator, wxComboBoxNameStr);
     m_version_selector->Bind(wxEVT_COMBOBOX, &Main::onChangeVersion, this);
 
