@@ -1,3 +1,9 @@
+# Version 2.1.2
+
+## Fixed
+
+Not being able to add `Angel's Folly` to the inventory.
+
 # Version 2.1.0
 
 ## What's new?
