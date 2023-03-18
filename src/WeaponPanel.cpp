@@ -36,7 +36,7 @@ wxBEGIN_EVENT_TABLE(WeaponPanel, wxPanel)
     _Weapons.insert(std::pair<wxString, int>("Virtuous Dignity", 0x5BE));
     _Weapons.insert(std::pair<wxString, int>("Cruel Arrogance", 0x5BF));
     _Weapons.insert(std::pair<wxString, int>("Machine Spear", 0x5C8));
-    _Weapons.insert(std::pair<wxString, int>("Angel's Folly", 0x688));
+    _Weapons.insert(std::pair<wxString, int>("Angel's Folly", 0x668));
     _Weapons.insert(std::pair<wxString, int>("Demon's Cry", 0x65E));
     _Weapons.insert(std::pair<wxString, int>("Type-40 Fists", 0x64A));
     _Weapons.insert(std::pair<wxString, int>("Type-3 Fists", 0x640));
