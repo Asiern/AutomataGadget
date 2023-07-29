@@ -24,60 +24,36 @@ wxBEGIN_EVENT_TABLE(PlayerPanel, wxPanel) wxEND_EVENT_TABLE()
     m_EXP = new wxStaticText(this, wxID_ANY, "EXP: 0", wxPoint(margin * 3, margin + 60), wxDefaultSize, 0,
                              wxStaticTextNameStr);
 
-    // Cheats
-    m_CheatsBox =
-        new wxStaticBox(this, wxID_ANY, "Cheats", wxPoint(margin, 110), wxSize(width - 30, 130), 1, wxStaticBoxNameStr);
-    m_NoClip = new wxCheckBox(this, wxID_ANY, "No Clip", wxPoint(3 * margin, 140), wxDefaultSize, 0, wxDefaultValidator,
-                              wxCheckBoxNameStr);
-    m_NoClip->Bind(wxEVT_CHECKBOX, &PlayerPanel::NoClip, this);
-    m_SpeedHack = new wxCheckBox(this, wxID_ANY, "2x Speed", wxPoint(3 * margin, 170), wxDefaultSize, 0,
-                                 wxDefaultValidator, wxCheckBoxNameStr);
-    m_SpeedHack->Bind(wxEVT_CHECKBOX, &PlayerPanel::SpeedHack, this);
-    m_InfDoubleJump =
-        new wxCheckBox(this, wxID_ANY, "Infinite Double Jump", wxPoint(margin + (width - 2 * margin) / 2, 140),
-                       wxDefaultSize, 0, wxDefaultValidator, wxCheckBoxNameStr);
-    m_InfDoubleJump->Bind(wxEVT_CHECKBOX, &PlayerPanel::InfDoubleJump, this);
-    m_NoCooldown = new wxCheckBox(this, wxID_ANY, "No Cooldown", wxPoint(3 * margin, 200), wxDefaultSize, 0,
-                                  wxDefaultValidator, wxCheckBoxNameStr);
-    m_NoCooldown->Bind(wxEVT_CHECKBOX, &PlayerPanel::NoCooldown, this);
-    m_InfAirDash = new wxCheckBox(this, wxID_ANY, "Infinite Air Dash", wxPoint(margin + (width - 2 * margin) / 2, 170),
-                                  wxDefaultSize, 0, wxDefaultValidator, wxCheckBoxNameStr);
-    m_InfAirDash->Bind(wxEVT_CHECKBOX, &PlayerPanel::InfAirDash, this);
-    m_IgnoreUpgradeMaterials =
-        new wxCheckBox(this, wxID_ANY, "Ignore Upgrade Materials", wxPoint(margin + (width - 2 * margin) / 2, 200),
-                       wxDefaultSize, 0, wxDefaultValidator, wxCheckBoxNameStr);
-    m_IgnoreUpgradeMaterials->Bind(wxEVT_CHECKBOX, &PlayerPanel::IgnoreUpgradeMaterials, this);
-
     // Position
     wxSize TextCtrlSize = wxSize(80, 20);
-    m_PositionBox = new wxStaticBox(this, wxID_ANY, "Position", wxPoint(margin, 250), wxSize(width - 30, 210), 1,
+    m_PositionBox = new wxStaticBox(this, wxID_ANY, "Position", wxPoint(margin, 110), wxSize(width - 30, 210), 1,
                                     wxStaticBoxNameStr);
-    m_XText = new wxStaticText(this, wxID_ANY, "X", wxPoint(20, 303), wxDefaultSize, 0, wxStaticTextNameStr);
-    m_YText = new wxStaticText(this, wxID_ANY, "Y", wxPoint(20, 338), wxDefaultSize, 0, wxStaticTextNameStr);
-    m_ZText = new wxStaticText(this, wxID_ANY, "Z", wxPoint(20, 373), wxDefaultSize, 0, wxStaticTextNameStr);
-    m_XposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 300), TextCtrlSize, 0,
+    m_XText = new wxStaticText(this, wxID_ANY, "X", wxPoint(20, 163), wxDefaultSize, 0, wxStaticTextNameStr);
+    m_YText = new wxStaticText(this, wxID_ANY, "Y", wxPoint(20, 198), wxDefaultSize, 0, wxStaticTextNameStr);
+    m_ZText = new wxStaticText(this, wxID_ANY, "Z", wxPoint(20, 233), wxDefaultSize, 0, wxStaticTextNameStr);
+    m_XposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 160), TextCtrlSize, 0,
                                     wxDefaultValidator, wxTextCtrlNameStr);
-    m_YposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 335), TextCtrlSize, 0,
+    m_YposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 195), TextCtrlSize, 0,
                                     wxDefaultValidator, wxTextCtrlNameStr);
-    m_ZposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 370), TextCtrlSize, 0,
+    m_ZposTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(4 * margin, 230), TextCtrlSize, 0,
                                     wxDefaultValidator, wxTextCtrlNameStr);
-    m_XposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 300),
+    m_XposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 160),
                                           TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
-    m_YposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 335),
+    m_YposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 195),
                                           TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
-    m_ZposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 370),
+    m_ZposStoredTextCtrl = new wxTextCtrl(this, wxID_ANY, "0.000000", wxPoint(width / 2 - 4 * margin, 230),
                                           TextCtrlSize, 0, wxDefaultValidator, wxTextCtrlNameStr);
     m_CurrentPosText =
-        new wxStaticText(this, wxID_ANY, "Current", wxPoint(4 * margin, 280), wxDefaultSize, 0, wxStaticTextNameStr);
-    m_StoredPosText = new wxStaticText(this, wxID_ANY, "Stored", wxPoint(width / 2 - 4 * margin, 280), wxDefaultSize, 0,
+        new wxStaticText(this, wxID_ANY, "Current", wxPoint(4 * margin, 140), wxDefaultSize, 0, wxStaticTextNameStr);
+    m_StoredPosText = new wxStaticText(this, wxID_ANY, "Stored", wxPoint(width / 2 - 4 * margin, 140), wxDefaultSize, 0,
                                        wxStaticTextNameStr);
-    m_StorePosition = new wxButton(this, wxID_ANY, "Store", wxPoint(240, 300), wxSize(90, 25), 1, wxDefaultValidator,
+    m_StorePosition = new wxButton(this, wxID_ANY, "Store", wxPoint(240, 160), wxSize(90, 25), 1, wxDefaultValidator,
                                    wxStaticBoxNameStr);
     m_StorePosition->Bind(wxEVT_BUTTON, &PlayerPanel::StorePosition, this);
-    m_RestorePosition = new wxButton(this, wxID_ANY, "Restore", wxPoint(240, 335), wxSize(90, 25), 1,
+    m_RestorePosition = new wxButton(this, wxID_ANY, "Restore", wxPoint(240, 195), wxSize(90, 25), 1,
                                      wxDefaultValidator, wxStaticBoxNameStr);
     m_RestorePosition->Bind(wxEVT_BUTTON, &PlayerPanel::RestorePosition, this);
-    m_WarpButton = new wxButton(this, wxID_ANY, "Warp", wxPoint(240, 410), wxSize(90, 25), 1, wxDefaultValidator,
+    m_WarpButton = new wxButton(this, wxID_ANY, "Warp", wxPoint(240, 270), wxSize(90, 25), 1, wxDefaultValidator,
                                 wxStaticBoxNameStr);
     m_WarpButton->Bind(wxEVT_BUTTON, &PlayerPanel::onWarpCLicked, this);
     wxArrayString* Locations = new wxArrayString();
@@ -115,7 +91,7 @@ wxBEGIN_EVENT_TABLE(PlayerPanel, wxPanel) wxEND_EVENT_TABLE()
     Locations->Add("Underground Cave (Elevator)", 1);
     Locations->Add("Underground Cave (Entrance)", 1);
     m_WarpComboBox =
-        new wxComboBox(this, wxID_ANY, "", wxPoint(4 * margin, 410), wxSize((width - (9 * margin)) * 2 / 3, 20),
+        new wxComboBox(this, wxID_ANY, "", wxPoint(4 * margin, 270), wxSize((width - (9 * margin)) * 2 / 3, 20),
                        *Locations, 0, wxDefaultValidator, wxComboBoxNameStr);
     delete Locations;
 
@@ -149,96 +125,16 @@ void PlayerPanel::OnTimer(wxTimerEvent&)
             m_WarpButton->Enable(true);
             m_WarpComboBox->Enable(true);
             m_RestorePosition->Enable(true);
-            m_NoClip->Enable(true);
-            m_IgnoreUpgradeMaterials->Enable(true);
-            m_SpeedHack->Enable(true);
-            m_NoCooldown->Enable(true);
             break;
         case VER_1_0_2:
             m_WarpButton->Enable(false);
             m_WarpComboBox->Enable(false);
             // m_RestorePosition->Enable(false);
-            m_NoClip->Enable(false);
-            m_IgnoreUpgradeMaterials->Enable(false);
-            m_SpeedHack->Enable(false);
-            m_NoCooldown->Enable(false);
             break;
         }
     }
     else
     {
-    }
-}
-
-void PlayerPanel::SpeedHack(wxCommandEvent& evt)
-{
-    if (m_SpeedHack->IsChecked())
-    {
-        hook->setGameSpeed(2);
-    }
-    else
-    {
-        hook->setGameSpeed(1);
-    }
-}
-
-void PlayerPanel::NoClip(wxCommandEvent& evt)
-{
-    if (m_NoClip->IsChecked())
-    {
-        hook->NoCLip(true);
-    }
-    else
-    {
-        hook->NoCLip(false);
-    }
-}
-
-void PlayerPanel::InfDoubleJump(wxCommandEvent& evt)
-{
-    if (m_InfDoubleJump->IsChecked())
-    {
-        hook->InfiniteDoubleJump(true);
-    }
-    else
-    {
-        hook->InfiniteDoubleJump(false);
-    }
-}
-
-void PlayerPanel::NoCooldown(wxCommandEvent& evt)
-{
-    if (m_NoCooldown->IsChecked())
-    {
-        hook->NoCooldown(true);
-    }
-    else
-    {
-        hook->NoCooldown(false);
-    }
-}
-
-void PlayerPanel::InfAirDash(wxCommandEvent& evt)
-{
-    if (m_InfAirDash->IsChecked())
-    {
-        hook->InfiniteAirDash(true);
-    }
-    else
-    {
-        hook->InfiniteAirDash(false);
-    }
-}
-
-void PlayerPanel::IgnoreUpgradeMaterials(wxCommandEvent& evt)
-{
-    if (m_IgnoreUpgradeMaterials->IsChecked())
-    {
-        hook->IgnoreUpgradeMaterials(true);
-    }
-    else
-    {
-        hook->IgnoreUpgradeMaterials(false);
     }
 }
 

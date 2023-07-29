@@ -16,15 +16,6 @@ class PlayerPanel : public wxPanel
     wxStaticText* m_Funds = nullptr;
     wxStaticText* m_EXP = nullptr;
 
-    // CHEATS
-    wxStaticBox* m_CheatsBox = nullptr;
-    wxCheckBox* m_NoClip = nullptr;
-    wxCheckBox* m_SpeedHack = nullptr;
-    wxCheckBox* m_InfDoubleJump = nullptr;
-    wxCheckBox* m_NoCooldown = nullptr;
-    wxCheckBox* m_InfAirDash = nullptr;
-    wxCheckBox* m_IgnoreUpgradeMaterials = nullptr;
-
     // POSITION
     wxStaticBox* m_PositionBox = nullptr;
     wxStaticText* m_XText = nullptr;
@@ -49,13 +40,7 @@ class PlayerPanel : public wxPanel
   protected:
     // TIMER
     void OnTimer(wxTimerEvent&);
-    // CHEAT EVT
-    void SpeedHack(wxCommandEvent& evt);
-    void NoClip(wxCommandEvent& evt);
-    void InfDoubleJump(wxCommandEvent& evt);
-    void NoCooldown(wxCommandEvent& evt);
-    void InfAirDash(wxCommandEvent& evt);
-    void IgnoreUpgradeMaterials(wxCommandEvent& evt);
+
     // POSITION EVT
     void onWarpCLicked(wxCommandEvent& evt);
     void StorePosition(wxCommandEvent& evt);
