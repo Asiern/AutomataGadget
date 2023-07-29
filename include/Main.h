@@ -30,6 +30,7 @@ class Main : public wxFrame, public wxThreadHelper
     wxPanel* Inventory = nullptr;
     wxPanel* Weapons = nullptr;
     wxPanel* Settings = nullptr;
+    wxPanel* Cheats = nullptr;
 
   protected:
     void updateComponents(void);

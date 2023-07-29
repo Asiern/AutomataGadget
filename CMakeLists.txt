@@ -12,6 +12,7 @@ set(
     include/PlayerPanel.hpp
     include/WeaponPanel.hpp
     include/defines.h
+    include/CheatsPanel.hpp
 
     src/Main.cpp
     src/cApp.cpp
@@ -19,6 +20,7 @@ set(
     src/SettingsPanel.cpp
     src/PlayerPanel.cpp
     src/WeaponPanel.cpp
+    src/CheatsPanel.cpp
 )
 
 add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
